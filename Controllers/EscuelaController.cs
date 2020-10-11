@@ -13,6 +13,7 @@ namespace asp.net_core_MVC.Controllers
             escuela.EscuelaID = Guid.NewGuid().ToString();
             escuela.Nombre = "Julián's SChool";
 
+            ViewBag.OtrosDatos = "Otros";
 
             return View(escuela);
         }
