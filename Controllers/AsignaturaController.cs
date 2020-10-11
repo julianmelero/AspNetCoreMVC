@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using  asp.net_core_MVC.Models;
 using System;
+using System.Collections.Generic;
 
 namespace asp.net_core_MVC.Controllers
 {
@@ -8,13 +9,28 @@ namespace asp.net_core_MVC.Controllers
     {
         public IActionResult Index() 
         {
-            var asignatura = new Asignatura{                        
-            //asignatura.UniqueId = Guid.NewGuid().ToString(),
-            Nombre = "Programación"
-            };
+          
+            var listaAsignaturas = new List<Asignatura>(){
+                            new Asignatura{Nombre="Matemáticas",
+                                UniqueId= Guid.NewGuid().ToString()
+                            } ,
+                            new Asignatura{Nombre="Educación Física",
+                                UniqueId= Guid.NewGuid().ToString()
+                            },
+                            new Asignatura{Nombre="Castellano",
+                                UniqueId= Guid.NewGuid().ToString()
+                            },
+                            new Asignatura{Nombre="Ciencias Naturales",
+                                UniqueId= Guid.NewGuid().ToString()
+                            }
+                            ,
+                            new Asignatura{Nombre="Programación",
+                                UniqueId= Guid.NewGuid().ToString()
+                            }
+                };
             ViewBag.OtrosDatos = "Otros";
-
-            return View(asignatura);
-        }
+            return View("MultiAsignatura",listaAsignaturas);
+        
     }
+}    
 }

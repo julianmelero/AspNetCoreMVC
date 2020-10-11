@@ -1,11 +1,16 @@
-﻿@model Asignatura
+﻿@model List<Asignatura>
+
 @{
     ViewData["Title"] = "Información Asignatura";
     Layout = "Simple";
 }
 <h1>@ViewData["Title"]</h1>
 
-<partial name= "Asignatura_simple" />
+@foreach(var asignatura in Model){
+    <partial name= "Asignatura_simple" model="asignatura" />
+    
+}
+
 
 
 <p>@ViewBag.OtrosDatos</p>
