@@ -9,8 +9,8 @@ namespace asp.net_core_MVC.Controllers
         public IActionResult Index() 
         {
             var escuela = new Escuela();                        
-            escuela.añoFundación = 2005;
-            escuela.EscuelaID = Guid.NewGuid().ToString();
+            escuela.AñoDeCreación = 2005;
+            escuela.UniqueId = Guid.NewGuid().ToString();
             escuela.Nombre = "Julián's SChool";
 
             ViewBag.OtrosDatos = "Otros";
