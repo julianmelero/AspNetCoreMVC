@@ -20,5 +20,12 @@ namespace asp.net_core_MVC.Controllers
 
             return View(escuela);
         }
+
+        public EscuelaController(EscuelaContext context) 
+        {
+            private EscuelaContext _context;
+
+            _context = context;
+        }
     }
 }

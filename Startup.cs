@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using asp.net_core_MVC.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,6 +26,12 @@ namespace asp.net_core_MVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            // Servicio para BD inmemory
+            services.AddDbContext<EscuelaContext>(
+                //Tipo de BD
+                options => options.UseInMemoryDatabase(databaseName: "testDB")
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
